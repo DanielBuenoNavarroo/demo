@@ -1,4 +1,4 @@
-import { Account, Client } from "react-native-appwrite";
+import { Account, Client, Databases } from "react-native-appwrite";
 import { config } from "./config";
 
 export const client = new Client()
@@ -7,3 +7,4 @@ export const client = new Client()
   .setPlatform(config.env.appwrite.platform);
 
 export const account = new Account(client);
+export const db = new Databases(client)

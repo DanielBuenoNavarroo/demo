@@ -1,5 +1,5 @@
 import { Tabs } from "expo-router";
-import FontAwesome from "@expo/vector-icons/FontAwesome";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 export default function TabsLayout() {
   return (
@@ -13,18 +13,49 @@ export default function TabsLayout() {
           elevation: 0,
           shadowOpacity: 0,
         },
+        tabBarActiveTintColor: "#6200ee",
+        tabBarInactiveTintColor: "#666666",
       }}
     >
       <Tabs.Screen
         name="index"
         options={{
-          title: "Home",
-          tabBarIcon: ({ color }: { color: string }) => (
-            <FontAwesome name="home" size={24} color={color} />
+          title: "Today's Habits",
+          tabBarIcon: ({ color, size }: { color: string; size: number }) => (
+            <MaterialCommunityIcons
+              name="calendar-today"
+              size={size}
+              color={color}
+            />
           ),
         }}
       />
-      <Tabs.Screen name="login" options={{ title: "Login" }} />
+      <Tabs.Screen
+        name="streaks"
+        options={{
+          title: "Streaks",
+          tabBarIcon: ({ color, size }: { color: string; size: number }) => (
+            <MaterialCommunityIcons
+              name="chart-line"
+              size={size}
+              color={color}
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="add-habit"
+        options={{
+          title: "Add Habit",
+          tabBarIcon: ({ color, size }: { color: string; size: number }) => (
+            <MaterialCommunityIcons
+              name="plus-circle"
+              size={size}
+              color={color}
+            />
+          ),
+        }}
+      />
     </Tabs>
   );
 }
